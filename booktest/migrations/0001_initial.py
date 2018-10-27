@@ -15,8 +15,14 @@ class Migration(migrations.Migration):
             fields=[
                 ('id', models.AutoField(verbose_name='ID', primary_key=True, serialize=False, auto_created=True)),
                 ('btitle', models.CharField(max_length=20)),
-                ('bpub_date', models.DateTimeField()),
+                ('bpub_date', models.DateTimeField(db_column='pub_date')),
+                ('bread', models.IntegerField(default=0)),
+                ('bcoment', models.IntegerField()),
+                ('isDelete', models.BooleanField(default=False)),
             ],
+            options={
+                'db_table': 'bookinfo',
+            },
         ),
         migrations.CreateModel(
             name='HeroInfo',
@@ -25,7 +31,8 @@ class Migration(migrations.Migration):
                 ('hname', models.CharField(max_length=10)),
                 ('hgender', models.BooleanField()),
                 ('hcontent', models.CharField(max_length=200)),
-                ('hbook', models.ForeignKey(to='booktest.BookInfo')),
+                ('isDelete', models.BooleanField(default=False)),
+                ('book', models.ForeignKey(to='booktest.BookInfo')),
             ],
         ),
     ]
