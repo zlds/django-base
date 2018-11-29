@@ -22,8 +22,8 @@ def show(request,id):
 def hello(request):
     today = datetime.now().date()
     daysOfWeek = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']
-    # return render(request, "booktest/hello.html", context={"today": today, "days_of_week": daysOfWeek})
-    return redirect('http://www.qq.com',permanent=True)
+    return render(request, "booktest/hello.html", context={"today": today, "days_of_week": daysOfWeek})
+    # return redirect('http://www.qq.com',permanent=True)
 
 def viewArticle(request, articleId):
     """ A view that display an article based on his ID"""
@@ -35,3 +35,9 @@ def viewArticle(request, articleId):
 def viewArticles(request, year, month):
     text = "Displaying articles of : %s/%s" % (year, month)
     return HttpResponse(text)
+def booktest(request):
+    book = ['a','b','c','d','e','f','g','h']
+    return render(request,'booktest/booktest.html',context={'booktest':book})
+
+def test(request):
+    return render(request,'booktest/child.html')

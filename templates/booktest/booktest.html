@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+{% for book in booktest %}
+    {% if forloop.first %}
+    <li>begin</li>
+    {% endif %}
+    <li>{{ book }}</li>
+    <ul>{{ forloop.counter }}: {{ book }}</ul>
+    <p>{{ forloop.counter0 }}: {{ book }}</p>
+    <p>{{ forloop.revcounter }}: {{ book }}</p>
+{% empty %}
+    <ul>没有书籍</ul>
+{% endfor %}
+</body>
+</html>

@@ -9,5 +9,7 @@ urlpatterns = [
     url(r'^(\d+)',views.show),
     url(r'^hello/$',views.hello),
     url(r'^viewArticle/(?P<articleId>\d+)/$',views.viewArticle),
-    url(r'^viewArticles/(?P<year>\d{4})/(?P<month>\d{1,2})/$',views.viewArticles,name='articles')
+    url(r'^viewArticles/(?P<year>\d{4})/(?P<month>\d{1,2})/$',views.viewArticles,name='articles'),
+    url(r'booktest/$',views.booktest,name='book'),
+    url(r'test/',views.test),
 ]
