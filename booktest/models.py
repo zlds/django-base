@@ -16,5 +16,6 @@ class HeroInfo(models.Model):
     hcontent = models.CharField(max_length=200)
     hbook = models.ForeignKey(BookInfo)
 
+
     def __str__(self):
         return self.hname
